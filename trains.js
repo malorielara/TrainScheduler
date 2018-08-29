@@ -1,6 +1,5 @@
 <script src="https://www.gstatic.com/firebasejs/5.4.1/firebase.js"></script>
 
-$(document)
 var config = {
     apiKey: "AIzaSyBRBXjIwkFcoLU5dwMliZCr4M5ojAgN3Cg",
     authDomain: "trainscheduler-7f4b4.firebaseapp.com",
@@ -14,6 +13,7 @@ var config = {
 
   var database= firebase.database();
 
+  // to add trains
   $("#submit").on("click", function(event) {
       var trainName = $("#train-name").val().trim();
       var destination = $("#destination").val().trim();
@@ -27,6 +27,7 @@ var config = {
         frequency = frequencyMin
       };
     
+    // train data to the firebase database
     data.ref().push(newTrain);
 
     // console.log(newTrain.name);
