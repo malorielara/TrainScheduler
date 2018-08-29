@@ -18,6 +18,12 @@ var config = {
       var trainName = $("#train-name").val().trim();
       var destination = $("#destination-d").val().trim();
       var unoTrainTime = $("#unoTrain").val().trim();
-      var frequency = $("#frequency-min").val().trim();
+      var frequencyMin = $("#frequency-min").val().trim();
 
+      var newTrain = {
+          name: trainName,
+          destination = destination,
+          unoTrainTime = unoTrainTime,
+          frequency = frequencyMin
+      };
   })
