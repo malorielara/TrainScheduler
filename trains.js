@@ -11,3 +11,13 @@ var config = {
   };
 
   firebase.initializeApp(config);
+
+  var database= firebase.database();
+
+  $("#submit").on("click", function(event) {
+      var trainName = $("#train-name").val().trim();
+      var destination = $("#destination-d").val().trim();
+      var unoTrainTime = $("#unoTrain").val().trim();
+      var frequency = $("#frequency-min").val().trim();
+
+  })
