@@ -1,5 +1,3 @@
-<script src="https://www.gstatic.com/firebasejs/5.4.1/firebase.js"></script>
-
 var config = {
     apiKey: "AIzaSyBRBXjIwkFcoLU5dwMliZCr4M5ojAgN3Cg",
     authDomain: "trainscheduler-7f4b4.firebaseapp.com",
@@ -7,26 +5,26 @@ var config = {
     projectId: "trainscheduler-7f4b4",
     storageBucket: "",
     messagingSenderId: "763037232069"
-  };
+};
 
-  firebase.initializeApp(config);
+firebase.initializeApp(config);
 
-  var database= firebase.database();
+var database = firebase.database();
 
-  // to add trains
-  $("#submit").on("click", function(event) {
-      var trainName = $("#train-name").val().trim();
-      var destination = $("#destination").val().trim();
-      var unoTrainTime = $("#uno-Train").val().trim();
-      var frequencyMin = $("#frequency-min").val().trim();
+// to add trains
+$("#submit").on("click", function (event) {
+    var trainName = $("#train-name").val().trim();
+    var destination = $("#destination").val().trim();
+    var unoTrainTime = $("#uno-Train").val().trim();
+    var frequencyMin = $("#frequency-min").val().trim();
 
-      var newTrain = {
+    var newTrain = {
         name: trainName,
         destination = destination,
         unoTrainTime = unoTrainTime,
         frequency = frequencyMin
-      };
-    
+    };
+
     // train data to the firebase database
     data.ref().push(newTrain);
 
@@ -44,4 +42,9 @@ var config = {
     $("#frequency").val().trim();
 
     // return false;
-  });
+});
+
+data.ref().on("child", function (child, prevChild) {
+
+    console.log(child.val());
+})
