@@ -16,14 +16,31 @@ var config = {
 
   $("#submit").on("click", function(event) {
       var trainName = $("#train-name").val().trim();
-      var destination = $("#destination-d").val().trim();
-      var unoTrainTime = $("#unoTrain").val().trim();
+      var destination = $("#destination").val().trim();
+      var unoTrainTime = $("#uno-Train").val().trim();
       var frequencyMin = $("#frequency-min").val().trim();
 
       var newTrain = {
-          name: trainName,
-          destination = destination,
-          unoTrainTime = unoTrainTime,
-          frequency = frequencyMin
+        name: trainName,
+        destination = destination,
+        unoTrainTime = unoTrainTime,
+        frequency = frequencyMin
       };
-  })
+    
+    data.ref().push(newTrain);
+
+    // console.log(newTrain.name);
+    // console.log(newTrain, destination);
+    // console.log(newTrain,unoTrainTime);
+    // console.log(newTrain.frequency);
+
+    alert("Train added!");
+
+    // will clear out textboxes after the user has added a train
+    $("#train-name").val("");
+    $("#destination").val("");
+    $("#uno-Train").val().trim();
+    $("#frequency").val().trim();
+
+    // return false;
+  });
