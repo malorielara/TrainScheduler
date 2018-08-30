@@ -47,4 +47,24 @@ $("#submit").on("click", function (event) {
 data.ref().on("child", function (child, prevChild) {
 
     console.log(child.val());
+
+    // storing into variables
+    var name1 = child.val().name;
+    var destination1 = child.val().destination;
+    var frequency1 = child.val().frequency;
+    var unoTrain1 = child.val().unoTrainTime;
+
+    // time adds : 
+    var times = unoTrain1.split(":");
+    var traintimes = moment().hours(times[0]).minutes(times[1]);
+    var maxM = moment.max(moment(), traintimes);
+    var arrival;
+
+    // set arrival to first train time
+    if(maxM == traintimes) {
+        arrival = traintimes.format("hh:mm A");
+    }
+
+    $("#trainTable > tbody").append("<tr><td>" + name1 + "</td><td>" + destination1
+        + "</td><td>" + frequency1 + "</td><td>" + arrival + "</td><td>");
 })
